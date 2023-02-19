@@ -48,13 +48,8 @@
                                   <td><?= $role->name ?></td>
                                   <td><?= $role->description ?></td>
                                   <td >
-                                   
-                                    
-                                    <form method="post" action="{$url}delete-role/<?= $role->id ?>">
-                                     <a href="{$url}edit-role/<?= $role->id ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-                                      <button class="btn btn-danger btn-xs" id="delete-button"><i class="fa fa-trash-o"></i> Delete </button>
-                                        <input type="hidden" name="confirm_delete" value="1">
-                                    </form>
+                                   <a href="{$url}edit-role/<?= $role->id ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                                   <button class="btn btn-danger btn-xs delete-btn" id="delete-btn" data-id="<?= $role->id ?>" onclick="deleteRecord(this)"><i class="fa fa-trash-o"></i> Delete </button>
                                   </td>
                                 </tr>
                                 <?php endforeach; ?>
@@ -87,26 +82,70 @@
         </div>
         <!-- /page content -->
 
-        <script>
-        // Add a click event listener to the delete button
-        document.getElementById('delete-button').addEventListener('click', function() {
-            // Display a confirmation dialog box using SweetAlert2
-            event.preventDefault();
-            Swal.fire({
-                title: 'Confirm Delete',
-                text: 'Are you sure you want to delete this role?',
-                icon: 'warning',
-                showCancelButton: true,
 
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
 
-            }).then((result) => {
-                // If the user confirms the delete operation, submit the form
-                if (result.isConfirmed) {
-                    document.forms[0].submit();
-                }
-            });
-        });
-    </script>
+    <!-- <script>
+      // delete by jquery
+  $(document).ready(function() {
+    $('.delete-btn').click(function() {
+      var id = $(this).data('id');
+
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-primary',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+      })
+      swalWithBootstrapButtons.fire({
+        title: 'Are you sure?',
+        text: 'You will not be able to recover this record!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = '{$url}delete-role/' + id;
+        }
+      });
+    });
+  });
+</script> -->
+
+<script>
+  //delete by pure javascript
+  function deleteRecord(button) {
+    var id = button.getAttribute('data-id');
+        const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-primary',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+      })
+
+      swalWithBootstrapButtons.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = '{$url}delete-role/' + id;
+        } else if (
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Cancelled',
+            '',
+            'success'
+          )
+        }
+      })
+  }
+</script>
