@@ -53,6 +53,8 @@
    <!-- toastr -->
     <script src="{$url}node_modules/toastr/build/toastr.min.js"></script>
     <link rel="stylesheet" href="{$url}node_modules/toastr/build/toastr.min.css">
+    <script src="{$url}assets/vendors/validator/validator.js"></script>
+    <script src="{$url}assets/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
 
 </body>
 

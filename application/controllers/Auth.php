@@ -21,12 +21,12 @@ class Auth extends CI_Controller
         );
 
         if ($this->session->userdata('logged_in')) {
-            if ($this->session->userdata('user_type') == 's') {
+            if ($this->session->userdata('user_type') == 'student') {
                 redirect('dashboard');
-            } elseif ($this->session->userdata('user_type') == 'l') {
-                redirect('dashboard2');
-            } elseif ($this->session->userdata('user_type') == 'da') {
-                redirect('dashboard3');
+            } elseif ($this->session->userdata('user_type') == 'lecture') {
+                redirect('dashboard');
+            } elseif ($this->session->userdata('user_type') == 'admin') {
+                redirect('dashboard');
             }
         }
         $this->parser->parse('auth/login', $this->data);
@@ -75,12 +75,12 @@ class Auth extends CI_Controller
                     $this->session->set_userdata($session_data);
 
                     // Redirect to the appropriate dashboard
-                    if ($user->user_type == 's') {
+                    if ($user->user_type == 'student') {
                         redirect('dashboard');
-                    } elseif ($user->user_type == 'l') {
-                        redirect('dashboard2');
-                    } elseif ($user->user_type == 'da') {
-                        redirect('dashboard3');
+                    } elseif ($user->user_type == 'admin') {
+                        redirect('dashboard');
+                    } elseif ($user->user_type == 'lecture') {
+                        redirect('dashboard');
                     }
                 } else {
                     // The password is incorrect

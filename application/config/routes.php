@@ -57,4 +57,10 @@ $route['login'] = 'Auth/index';
 $route['register'] = 'Auth/register';
 $route['auth'] = 'Auth/process_login';
 $route['logout'] = 'Auth/logout';
+$route['add-role'] = 'Dashboard/permissions_add';
+$route['create-role'] = 'Dashboard/add_role';
+$route['user/view-role'] = 'Dashboard/view_roles';
+$route['edit-role/(:num)'] = 'Dashboard/edit_role/$1';
+$route['delete-role/(:num)'] = 'Dashboard/delete_role/$1';
+$route['update-role/(:num)'] = 'Dashboard/update_role/$1';
 
