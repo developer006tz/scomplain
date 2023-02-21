@@ -33,9 +33,6 @@ class Dashboard extends CI_Controller
             'user_type' => $this->session->userdata('user_type'),
             'stitle' => 'NIT_SCP',
         );
-        // $this->load->view('includes/header');
-        // $this->load->view('includes/sidemenu');
-        // $this->load->view('dashboard');
         $this->parser->parse('includes/header', $this->data);
         $this->parser->parse('includes/sidemenu', $this->data);
         $this->parser->parse('includes/topmenu', $this->data);
@@ -62,8 +59,7 @@ class Dashboard extends CI_Controller
         $this->parser->parse('includes/header', $data);
         $this->parser->parse('includes/sidemenu', $data);
         $this->parser->parse('includes/topmenu', $data);
-        $this->parser->parse('admin/permission-add', $data);
-        // $this->parser->parse('includes/_contents', $data);
+        $this->parser->parse('admin/permission-add', $data);//content
         $this->parser->parse('includes/footer', $data);
     }
 

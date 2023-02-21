@@ -64,3 +64,6 @@ $route['edit-role/(:num)'] = 'Dashboard/edit_role/$1';
 $route['delete-role/(:num)'] = 'Dashboard/delete_role/$1';
 $route['update-role/(:num)'] = 'Dashboard/update_role/$1';
 
+// complaints routes
+$route['add-complaint']= 'Complaint/index';
+

@@ -30,8 +30,21 @@
   <!-- sweetalart2 -->
     <script src="{$url}node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="{$url}node_modules/sweetalert2/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="{$url}node_modules/toastr/build/toastr.min.css">
 
   <!-- Custom Theme Style -->
   <link href="{$url}assets/build/css/custom.min.css" rel="stylesheet">
   <link href="{$url}assets/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+
+
+  <!-- bootstrap-wysiwyg -->
+  <link href="{$url}assets/vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+  <!-- Select2 -->
+  <link href="{$url}assets/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+  <!-- Switchery -->
+  <link href="{$url}assets/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+  <!-- starrr -->
+  <link href="{$url}assets/vendors/starrr/dist/starrr.css" rel="stylesheet">
+
+
 </head>

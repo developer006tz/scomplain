@@ -29,13 +29,13 @@
             <div class="col-md-3 left_col menu_fixed">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.html" class="site_title"><img src="{$url}assets/images/logo.png" alt="..." width="32" height="30" > <span>{stitle}</span></a>
+                        <a href="index.html" class="site_title"><img src="{$url}assets/images/logo.png" alt="..." width="64" height="50" > <span>{stitle}</span></a>
                     </div>
 
                     <div class="clearfix"></div>
 
                     <!-- menu profile quick info -->
-                    <div class="profile clearfix">
+                    <!-- <div class="profile clearfix">
                         <div class="profile_pic">
                             <img src="{$url}assets/images/img.jpg" alt="..." class="img-circle profile_img">
                         </div>
@@ -43,7 +43,7 @@
                             <span>Welcome,</span>
                             <h2>{name}</h2>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- /menu profile quick info -->
 
                     <br />
@@ -51,7 +51,6 @@
                     <!-- sidebar menu -->
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                         <div class="menu_section">
-                            <h3>General</h3>
                             <ul class="nav side-menu">
                                 <li><a><i class="fa fa-home"></i> Dashboard <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
@@ -73,15 +72,8 @@
                                 <li><a><i class="fa fa-building-o"></i>Departments<span
                                             class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="general_elements.html">General Elements</a></li>
-                                        <li><a href="media_gallery.html">Media Gallery</a></li>
-                                        <li><a href="typography.html">Typography</a></li>
-                                        <li><a href="icons.html">Icons</a></li>
-                                        <li><a href="glyphicons.html">Glyphicons</a></li>
-                                        <li><a href="widgets.html">Widgets</a></li>
-                                        <li><a href="invoice.html">Invoice</a></li>
-                                        <li><a href="inbox.html">Inbox</a></li>
-                                        <li><a href="calendar.html">Calendar</a></li>
+                                        <li><a href="general_elements.html">View</a></li>
+                                        <li><a href="media_gallery.html">Add</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-graduation-cap"></i> Programmes <span class="fa fa-chevron-down"></span></a>
@@ -106,6 +98,14 @@
                                         <li class="sub_menu"><a href="{$url}user/view-role">view</a>
                                         </li>
                                         <li><a href="{$url}add-role">add</a>
+                                        </li>
+                                    </ul>
+                                    </li>
+                                    <li><a>complaint type<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li class="sub_menu"><a href="{$url}user/view-role">view</a>
+                                        </li>
+                                        <li><a href="{$url}add-complaint">add</a>
                                         </li>
                                     </ul>
                                     </li>
