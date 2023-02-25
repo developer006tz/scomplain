@@ -19,3 +19,7 @@ $route['update-role/(:num)'] = 'Dashboard/update_role/$1';
 // complaints routes
 $route['add-complaint']= 'Complaint/index';
 
+// department
+$route['departments']= 'Department/index';
+$route['delete-department/(:num)'] = 'Department/delete_department/$1';
+$route['add-department'] = 'Department/department_add';

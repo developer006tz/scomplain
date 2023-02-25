@@ -72,8 +72,8 @@
                                 <li><a><i class="fa fa-building-o"></i>Departments<span
                                             class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="general_elements.html">View</a></li>
-                                        <li><a href="media_gallery.html">Add</a></li>
+                                        <li><a href="{$url}departments">View</a></li>
+                                        <li><a href="{$url}add-department">Add</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-graduation-cap"></i> Programmes <span class="fa fa-chevron-down"></span></a>
