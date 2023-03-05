@@ -29,7 +29,7 @@ $route['delete-department/(:num)'] = 'Department/delete_department/$1';
 //Program
 $route['programs']= 'Program/index';
 $route['add-program'] = 'Program/add';
-$route['edit-program/(:num)'] = 'Program/edit/$1';
-$route['delete-program/(:num)'] = 'Program/program/$1';
+$route['edit-program/(:any)'] = 'Program/edit/$1';
+$route['delete-program/(:any)'] = 'Program/delete/$1';
 
 

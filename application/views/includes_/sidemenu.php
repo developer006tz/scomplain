@@ -31,12 +31,12 @@ $current_url = current_url();
                                 <li><a href="{$url}add-department" class="<?= $current_url == base_url('add-department') ? 'active' : '' ?>">Department Add</a></li>
                             </ul>
                         </li>
-                        <li class="submenu">
+                        <li class="submenu <?= ($current_url == base_url('programs') || $current_url == base_url('add-program') || $current_url == base_url('edit-program')) ? 'active' : '' ?>">
                             <a href="#"><i class="fas fa-columns"></i> <span> Programmes </span> <span
                                     class="menu-arrow"></span></a>
                             <ul>
-                                <li><a href="{$url}program">Programme List</a></li>
-                                <li><a href="{$url}add-program">Programme Add</a></li>
+                                <li><a href="{$url}programs" class="<?= $current_url == base_url('programs') ? 'active' : '' ?>">Programme List</a></li>
+                                <li><a href="{$url}add-program" class="<?= $current_url == base_url('add-program') ? 'active' : '' ?>">Programme Add</a></li>
                             </ul>
                         </li>
                         <li class="submenu">

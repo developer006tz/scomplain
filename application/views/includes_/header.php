@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <title>{title}</title>
     <!-- jquery -->
-    <script src="{$url}node_modules\datatables.net-bs5\js\dataTables.bootstrap5.min.js"></script>
+    <!-- <script src="{$url}node_modules\datatables.net-bs5\js\dataTables.bootstrap5.min.js"></script> -->
     <script src="{$url}assets/js/jquery-3.6.0.min.js"></script>
 
     <link rel="shortcut icon" href="assets/img/favicon.png">
@@ -29,9 +29,14 @@
 <script src="{$url}assets/plugins/jquery.validate/jquery.validate.min.js"></script>
 
     <!-- datatables -->
-    <link rel="stylesheet" href="{$url}node_modules\datatables.net-dt\css\jquery.dataTables.min.css">
+    <!-- <link rel="stylesheet" href="{$url}node_modules\datatables.net-dt\css\jquery.dataTables.min.css"> -->
     <link rel="stylesheet" href="{$url}node_modules\datatables.net-bs5\css\dataTables.bootstrap5.min.css">
-    
+    <!-- <link rel="stylesheet" href="{$url}node_modules\datatables.net-responsive-bs5\css\responsive.bootstrap5.css"> -->
+    <!-- <link rel="stylesheet" href="{$url}node_modules\datatables.net-buttons-bs5\css\buttons.bootstrap5.min.css"> -->
+    <!-- <link rel="stylesheet" href="{$url}node_modules\datatables.net-searchbuilder-bs5\css\searchBuilder.bootstrap5.min.css"> -->
+    <!-- <link rel="stylesheet" href="{$url}node_modules\datatables.net-select-bs5\css\select.bootstrap5.min.css"> -->
+
+ 
 </head>
 <style>
     

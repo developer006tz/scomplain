@@ -15,7 +15,6 @@ class Program extends CI_Controller
         check_admin();
         $this->data = array(
             '$url' => site_url(),
-            'stitle'=> 'SCP',
             'title'=>'DEPARTMENT | SCP',
             'user' => $this->session->userdata('user_id'),
             'name' => $this->session->userdata('user_name'),
@@ -27,17 +26,17 @@ class Program extends CI_Controller
 
     public function index(){
         $data = array(
+            'title'=>'PROGRAMMES | SCP',
             'heading'=>'Program',
             'sub-heading' => 'View Program'
         );
         $this->load->model('program_model');
         $data['program'] = $this->program_model->get_all_program();
         $data = array_merge($this->data,$data);
-        $this->parser->parse('includes/header', $data);
-        $this->parser->parse('includes/sidemenu', $data);
-        $this->parser->parse('includes/topmenu', $data);
-        $this->parser->parse('admin/program-view', $data);//content
-        $this->parser->parse('includes/footer', $data);
+        $this->parser->parse('includes_/header', $data);
+        $this->parser->parse('includes_/sidemenu', $data);
+        $this->parser->parse('admin_/program/program', $data);
+        $this->parser->parse('includes_/footer', $data);
     }
 
    
@@ -49,9 +48,12 @@ class Program extends CI_Controller
         $data = array(
             'title' => 'program',
             'heading' => 'program',
-            'sub-heading' => 'Add program',      
+            'sub-heading' => 'Add program',
+            'btn-name'=>'Edit',
+            'btn-back'=>'Cancel'      
         );
         $data['department'] = $this->department_model->get_all_department();
+        
         $data['nta']=array('4'=>'NTA LEVEL 4','5'=>'NTA LEVEL 5','6'=>'NTA LEVEL 6','7'=>'NTA LEVEL 7','8'=>'NTA LEVEL 8');
         // dd($data['nta']);
         if ($_POST) {
@@ -93,23 +95,47 @@ class Program extends CI_Controller
     public function edit()
     {
         $this->load->model('program_model');
+        $this->load->model('department_model');
         $data = array(
-            'title' => 'program',
+            'title' => 'EDIT | PROGRAM',
             'heading' => 'program',
             'sub-heading' => 'Edit program',
+            'btn-name'=>'Edit',
+            'btn-back'=>'Cancel'
         );
 
         check_login();
         $this->load->model('program_model');
         $id = $this->security->xss_clean($this->uri->segment(2));
-        $data['program'] = $program = $this->program_model->get_program_by_id($id);
+       
+        $data['nta']=array('4'=>'NTA LEVEL 4','5'=>'NTA LEVEL 5','6'=>'NTA LEVEL 6','7'=>'NTA LEVEL 7','8'=>'NTA LEVEL 8');
+        $data['department'] = $this->department_model->get_all_department();
+         $data['program'] = $program = $this->program_model->get_program_by_id($id);
         if (!empty($program)) {
-            foreach ($program as $dept) {
-                $data['dept_id'] = $dept->dept_id;
-                $data['dept_name'] = $dept->dept_name;
-                $data['dept_code'] = $dept->dept_code;
+            foreach ($program as $prog) {
+                $data['prog_id'] = $prog->prog_id;
+                $data['prog_name'] = $prog->prog_name;
+                $data['capacity'] = $prog->capacity;
+                $data['nta_old']= $nta_old = $prog->ntaLevel;
+                $data['dept_old'] = $prog->department ;
+            }
+            if($nta_old =='4'){
+                $data['nta_old_label']='NTA LEVEL 4';
+            }
+            if($nta_old =='5'){
+                $data['nta_old_label']='NTA LEVEL 5';
+            }
+            if($nta_old =='6'){
+                $data['nta_old_label']='NTA LEVEL 6';
+            }
+            if($nta_old =='7'){
+                $data['nta_old_label']='NTA LEVEL 7';
+            }
+            if($nta_old =='8'){
+                $data['nta_old_label']='NTA LEVEL 8';
             }
         }
+        
 
         if ($_POST) {
             if ($this->session->userdata('user_type') == 'admin') {
@@ -144,22 +170,22 @@ class Program extends CI_Controller
 
         $data = array_merge($this->data, $data);
 
-        $this->parser->parse('includes/header', $data);
-        $this->parser->parse('includes/sidemenu', $data);
-        $this->parser->parse('includes/topmenu', $data);
-        $this->parser->parse('admin/program-edit', $data);
-        $this->parser->parse('includes/footer', $data);
+        $this->parser->parse('includes_/header', $data);
+        $this->parser->parse('includes_/sidemenu', $data);
+        $this->parser->parse('admin_/program/edit-program', $data);
+        $this->parser->parse('includes_/footer', $data);
     }
 
 
 
-     public function delete($dept_id)
+     public function delete($prog_id)
     {
+        
         check_login();
         check_admin();
-        $dept_id = $this->security->xss_clean($this->uri->segment(2));
+        $prog_id = $this->security->xss_clean($this->uri->segment(2));
         $this->load->model('program_model');
-        $result = $this->program_model->delete_program($dept_id);
+        $result = $this->program_model->delete_program($prog_id);
         if ($result) {
             $this->session->set_flashdata('success', $result['message']);
             redirect('programs');
