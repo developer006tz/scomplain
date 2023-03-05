@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-ob_start(); //we need to start session in order to access it through CI
 
 class Program extends CI_Controller
 {
@@ -84,11 +83,10 @@ class Program extends CI_Controller
 
         $data = array_merge($this->data, $data);
 
-        $this->parser->parse('includes/header', $data);
-        $this->parser->parse('includes/sidemenu', $data);
-        $this->parser->parse('includes/topmenu', $data);
-        $this->parser->parse('admin/program-add', $data);
-        $this->parser->parse('includes/footer', $data);
+        $this->parser->parse('includes_/header', $data);
+        $this->parser->parse('includes_/sidemenu', $data);
+        $this->parser->parse('admin_/program/add-program', $data);
+        $this->parser->parse('includes_/footer', $data);
     }
 
     // edit program

@@ -35,8 +35,8 @@ $current_url = current_url();
                             <a href="#"><i class="fas fa-columns"></i> <span> Programmes </span> <span
                                     class="menu-arrow"></span></a>
                             <ul>
-                                <li><a href="form-basic-inputs.html">Programme List</a></li>
-                                <li><a href="form-input-groups.html">Programme Add</a></li>
+                                <li><a href="{$url}program">Programme List</a></li>
+                                <li><a href="{$url}add-program">Programme Add</a></li>
                             </ul>
                         </li>
                         <li class="submenu">

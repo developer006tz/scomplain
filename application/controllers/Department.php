@@ -36,7 +36,7 @@ class Department extends CI_Controller
         $data = array_merge($this->data,$data);
         $this->parser->parse('includes_/header', $data);
         $this->parser->parse('includes_/sidemenu', $data);
-        $this->parser->parse('admin_/departments', $data);
+        $this->parser->parse('admin_/department/departments', $data);
         // $this->parser->parse('includes_/topmenu', $data);
         // $this->parser->parse('admin/department-view', $data);//content
         $this->parser->parse('includes_/footer', $data);
@@ -83,7 +83,7 @@ class Department extends CI_Controller
 
         $this->parser->parse('includes_/header', $data);
         $this->parser->parse('includes_/sidemenu', $data);
-        $this->parser->parse('admin_/add-department', $data);
+        $this->parser->parse('admin_/department/add-department', $data);
         $this->parser->parse('includes_/footer', $data);
 
         // $this->parser->parse('includes/header', $data);
@@ -156,7 +156,7 @@ class Department extends CI_Controller
 
         $this->parser->parse('includes_/header', $data);
         $this->parser->parse('includes_/sidemenu', $data);
-        $this->parser->parse('admin_/edit-department', $data);
+        $this->parser->parse('admin_/department/edit-department', $data);
         $this->parser->parse('includes_/footer', $data);
     }
 

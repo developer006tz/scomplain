@@ -45,6 +45,16 @@ input.form-control.valid {
     background: #f6fff4;
 }
 
+select.error {
+    border: 1px solid red;
+    background: #fff6f6;
+}
+
+select.valid {
+    border: 1px solid green;
+    background: #f6fff4;
+}
+
 label.error{
     color: red;
 }
@@ -85,10 +95,10 @@ label.error{
 
             <div class="header-left">
                 <a href="index.html" class="logo">
-                    <img src="{$url}assets/img/logo.png" alt="Logo">
+                    <img src="{$url}assets\img\logo\main-logo2.png" alt="Logo">
                 </a>
                 <a href="index.html" class="logo logo-small">
-                    <img src="{$url}assets/img/logo-small.png" alt="Logo" width="30" height="30">
+                    <img src="{$url}assets\img\logo\main-logo2.png" alt="Logo" width="30" height="30">
                 </a>
             </div>
             <div class="menu-toggle">
