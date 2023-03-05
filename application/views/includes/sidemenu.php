@@ -78,8 +78,8 @@
                                 </li>
                                 <li><a><i class="fa fa-graduation-cap"></i> Programmes <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="tables.html">Tables</a></li>
-                                        <li><a href="tables_dynamic.html">Table Dynamic</a></li>
+                                        <li><a href="{$url}programs">View</a></li>
+                                        <li><a href="{$url}add-program">Add</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-envelope"></i>Messages<span

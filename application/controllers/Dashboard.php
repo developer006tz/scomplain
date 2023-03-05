@@ -15,8 +15,7 @@ class Dashboard extends CI_Controller
         $this->data = array(
             '$url' => site_url(),
             'name'=> $this->session->userdata('user_name'),
-            'stitle'=> 'SCP',
-            'title'=>'scp'
+            'user_type'=> $this->session->userdata('user_type'),
 
         );
         
@@ -24,21 +23,24 @@ class Dashboard extends CI_Controller
     public function index()
     {
         check_login();
-        $this->data = array(
+        $data = array(
             '$url' => site_url(),
             'title' => 'Welcome | dashboard',
-            'content' => 'Hello, world!',
+            'heading' => 'dashboard',
             'user'=> $this->session->userdata('user_id'),
             'name'=> $this->session->userdata('user_name'),
             'user_type' => $this->session->userdata('user_type'),
             'stitle' => 'NIT_SCP',
         );
-        $this->parser->parse('includes/header', $this->data);
-        $this->parser->parse('includes/sidemenu', $this->data);
-        $this->parser->parse('includes/topmenu', $this->data);
-        $this->parser->parse('includes/dashboard_menu', $this->data);
-        $this->parser->parse('includes/_contents', $this->data);
-        $this->parser->parse('includes/footer', $this->data);
+
+        $data = array_merge($this->data, $data);
+        $this->parser->parse('includes_/header', $data);
+        $this->parser->parse('includes_/sidemenu', $data);
+        $this->parser->parse('admin_/dashboard', $data);
+        // $this->parser->parse('includes2/topmenu', $this->data);
+        // $this->parser->parse('includes2/dashboard_menu', $this->data);
+        // $this->parser->parse('includes2/_contents', $this->data);
+        $this->parser->parse('includes_/footer', $this->data);
     }
 
     public function permissions_add()

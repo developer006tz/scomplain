@@ -34,36 +34,22 @@ class Department extends CI_Controller
         $this->load->model('department_model');
         $data['department'] = $this->department_model->get_all_department();
         $data = array_merge($this->data,$data);
-        $this->parser->parse('includes/header', $data);
-        $this->parser->parse('includes/sidemenu', $data);
-        $this->parser->parse('includes/topmenu', $data);
-        $this->parser->parse('admin/department-view', $data);//content
-        $this->parser->parse('includes/footer', $data);
+        $this->parser->parse('includes_/header', $data);
+        $this->parser->parse('includes_/sidemenu', $data);
+        $this->parser->parse('admin_/departments', $data);
+        // $this->parser->parse('includes_/topmenu', $data);
+        // $this->parser->parse('admin/department-view', $data);//content
+        $this->parser->parse('includes_/footer', $data);
     }
 
-    public function delete_department($dept_id)
-    {
-        check_login();
-        check_admin();
-        $dept_id = $this->security->xss_clean($this->uri->segment(2));
-        $this->load->model('department_model');
-        $result = $this->department_model->delete_department($dept_id);
-        if ($result) {
-            $this->session->set_flashdata('success', $result['message']);
-            redirect('departments');
-        } else {
-            log_error('error', $result['message']);
-            $this->session->set_flashdata('error', $result['message']);
-            redirect('departments');
-        }
-    }
+   
 
     public function department_add()
     {
         $this->load->model('Department_model');
-        $datas = array(
+        $data = array(
             'title' => 'DEPARTMENT',
-            'heading' => 'DEPARTMENT',
+            'heading' => 'department',
             'sub-heading' => 'Add Department',      
         );
         if ($_POST) {
@@ -93,14 +79,105 @@ class Department extends CI_Controller
 
         }
 
-        $data = array_merge($this->data, $datas);
+        $data = array_merge($this->data, $data);
 
-        $this->parser->parse('includes/header', $data);
-        $this->parser->parse('includes/sidemenu', $data);
-        $this->parser->parse('includes/topmenu', $data);
-        $this->parser->parse('admin/department-add', $data);
-        $this->parser->parse('includes/footer', $data);
+        $this->parser->parse('includes_/header', $data);
+        $this->parser->parse('includes_/sidemenu', $data);
+        $this->parser->parse('admin_/add-department', $data);
+        $this->parser->parse('includes_/footer', $data);
+
+        // $this->parser->parse('includes/header', $data);
+        // $this->parser->parse('includes/sidemenu', $data);
+        // $this->parser->parse('includes/topmenu', $data);
+        // $this->parser->parse('admin/department-add', $data);
+        // $this->parser->parse('includes/footer', $data);
     }
 
+    // edit Department
+    public function department_edit()
+    {
+        $this->load->model('Department_model');
+        $data = array(
+            'title' => 'EDIT | DEPARTMENT',
+            'heading' => 'department',
+            'sub-heading' => 'Edit Department',
+        );
+
+        check_login();
+        $this->load->model('department_model');
+        $id = $this->security->xss_clean($this->uri->segment(2));
+        $data['department'] = $department = $this->department_model->get_department_by_id($id);
+        if (!empty($department)) {
+            foreach ($department as $dept) {
+                $data['dept_id'] = $dept->dept_id;
+                $data['dept_name'] = $dept->dept_name;
+                $data['dept_code'] = $dept->dept_code;
+            }
+        }
+
+        if ($_POST) {
+            if ($this->session->userdata('user_type') == 'admin') {
+                $name = $this->input->post('name');
+                $dept_code = $this->input->post('code');
+                
+                $dept_data = array(
+                    'dept_code' => $dept_code,
+                    'dept_name' => $name
+                );
+
+                $result = $this->department_model->update_dept($id,$dept_data);
+
+                if ($result['status'] == 'success') {
+                    $this->session->set_flashdata('success', $result['message']);
+                    redirect('departments');
+                } else if($result['status']=='warning') {
+                    $this->session->set_flashdata('success', $result['message']);
+                    redirect('departments');
+                    
+                } else {
+                    log_message('error', $result['message']);
+                    $this->session->set_flashdata('error', $result['message']);
+                    redirect('edit-department');
+                }
+            } else {
+                $this->session->set_flashdata('error', 'You are not authorized to add role.');
+                redirect('add-department');
+            }
+
+        }
+
+        $data = array_merge($this->data, $data);
+
+        // $this->parser->parse('includes/header', $data);
+        // $this->parser->parse('includes/sidemenu', $data);
+        // $this->parser->parse('includes/topmenu', $data);
+        // $this->parser->parse('admin/department-edit', $data);
+        // $this->parser->parse('includes/footer', $data);
+
+        $this->parser->parse('includes_/header', $data);
+        $this->parser->parse('includes_/sidemenu', $data);
+        $this->parser->parse('admin_/edit-department', $data);
+        $this->parser->parse('includes_/footer', $data);
+    }
+
+     public function delete_department($dept_id)
+    {
+        check_login();
+        check_admin();
+        $dept_id = $this->security->xss_clean($this->uri->segment(2));
+        $this->load->model('department_model');
+        $result = $this->department_model->delete_department($dept_id);
+        if ($result) {
+            $this->session->set_flashdata('success', $result['message']);
+            redirect('departments');
+        } else {
+            log_error('error', $result['message']);
+            $this->session->set_flashdata('error', $result['message']);
+            redirect('departments');
+        }
+    }
+
+
+    
 
 }

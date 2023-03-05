@@ -21,5 +21,15 @@ $route['add-complaint']= 'Complaint/index';
 
 // department
 $route['departments']= 'Department/index';
-$route['delete-department/(:num)'] = 'Department/delete_department/$1';
 $route['add-department'] = 'Department/department_add';
+$route['edit-department/(:num)'] = 'Department/department_edit/$1';
+$route['delete-department/(:num)'] = 'Department/delete_department/$1';
+
+
+//Program
+$route['programs']= 'Program/index';
+$route['add-program'] = 'Program/add';
+$route['edit-program/(:num)'] = 'Program/edit/$1';
+$route['delete-program/(:num)'] = 'Program/program/$1';
+
+

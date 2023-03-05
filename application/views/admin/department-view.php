@@ -1,6 +1,6 @@
 <div class="right_col" role="main">
           <div class="">
-            <a href="{$url}add -department" class="btn btn-primary">add</a>
+            <a href="{$url}add-department" class="btn btn-primary">add</a>
             <div class="page-title" style="display:flex;justify-content:center;">
             
               <div class="title_left">
@@ -58,7 +58,7 @@
                           <td> <a href="#" data-toggle="modal" data-target=".bs-example-modal-sm"><?= $dept->dept_name ?></a> </td>
                           <td><a href="#" data-toggle="modal" data-target=".bs-example-modal-sm"><?= $dept->dept_code ?></a></td>
                           <td>
-                            <a href="#" class="btn btn-primary">edit</a>
+                            <a href="{$url}edit-department/<?= $dept->dept_id ?>" class="btn btn-primary">edit</a>
                             <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-sm">view</button>
                             <button class="btn btn-danger delete-btn" id="delete-btn" data-id="<?= $dept->dept_id ?>" onclick="deleteRecord(this)"><i class="fa fa-trash-o"></i> Delete </button>
                           </td>

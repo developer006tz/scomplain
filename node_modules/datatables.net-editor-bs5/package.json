@@ -1,0 +1,24 @@
+{
+  "name": "datatables.net-editor-bs5",
+  "version": "2.0.3",
+  "description": "DataTables Editor - Bootstrap 5 integration",
+  "main": "js/editor.bootstrap5.js",
+  "style": "css/editor.bootstrap5.css",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com:DataTables/Dist-Editor-Boostrap5.git"
+  },
+  "keywords": [
+    "DataTables",
+    "Editor",
+    "Bootstrap"
+  ],
+  "dependencies": {
+    "datatables.net-editor": "^2.0.3"
+  },
+  "author": "SpryMedia Ltd",
+  "license": "SEE LICENSE IN License.md"
+}

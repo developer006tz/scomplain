@@ -11,6 +11,9 @@
   <title>{title}</title>
 <!-- jQuery -->
 <script src="{$url}assets/vendors/jquery/dist/jquery.min.js"></script>
+
+<!-- jQuery Validate -->
+<script src="{$url}assets/vendors/jquery.validate/jquery.validate.min.js"></script>
   <!-- Bootstrap -->
   <link href="{$url}assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome -->
@@ -48,3 +51,24 @@
 
 
 </head>
+<style>
+  input.form-control.error {
+    background: #995d5d;
+}
+
+input.form-control.valid {
+    background: #d6f7d7;
+}
+
+label.error{
+  color: #e80606;
+}
+
+select.error {
+    background: #995d5d;
+}
+
+select.valid {
+    background: #d6f7d7;
+}
+</style>
