@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-ob_start(); //we need to start session in order to access it through CI
 
 class Complaint extends CI_Controller
 {
